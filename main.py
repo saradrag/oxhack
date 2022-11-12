@@ -29,8 +29,8 @@ manga.paste(images[1], (712, 100))
 manga.paste(images[2], (100, 712))
 manga.paste(images[3], (712, 712))
 
-draw = ImageDraw(manga)
-draw.rectangle([(462, 512), (862, 512), (462, 812), (862, 812),], fill=ImageColor.getrgb("white"))
+draw = ImageDraw.Draw(manga)
+draw.rectangle([(462, 512), (862, 812)], fill=ImageColor.getrgb("black"))
 text_box(text, draw, ImageFont.load_default(), [462, 512, 400, 300])
 
 manga.save("manga.png")

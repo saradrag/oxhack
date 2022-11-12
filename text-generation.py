@@ -2,9 +2,35 @@ from transformers import pipeline
 
 pipe = pipeline('text-generation', model='pranavpsv/genre-story-generator-v2')
 text = pipe(" By forcing both Anakin and")
-print(text)
+print(text[0]['generated_text'])
 
-'''
-pipe = pipeline('text-generation', model='pjasminejwebb/KeywordIdentifier')
-print(pipe('Anakin and Goro have a lot of trouble in their lives. Since the king is under duress from his father, his wife sends him away to the city (where they live happily). They have no one to turn to except Kizuma and Tsubasa, the wise-cracking, half-man half-sister of his father. To avoid conflict, both couples decide to marry and marry as little as possible, so the marriage of Kizuma with Goro begins.'))
-'''
+from transformers import (
+    TokenClassificationPipeline,
+    AutoModelForTokenClassification,
+    AutoTokenizer,
+)
+from transformers.pipelines import AggregationStrategy
+import numpy as np
+
+class KeyphraseExtractionPipeline(TokenClassificationPipeline):
+    def __init__(self, model, *args, **kwargs):
+        super().__init__(
+            model=AutoModelForTokenClassification.from_pretrained(model),
+            tokenizer=AutoTokenizer.from_pretrained(model),
+            *args,
+            **kwargs
+        )
+
+    def postprocess(self, model_outputs):
+        results = super().postprocess(
+            model_outputs=model_outputs,
+            aggregation_strategy=AggregationStrategy.SIMPLE,
+        )
+        return np.unique([result.get("word").strip() for result in results])
+
+model_name = "ml6team/keyphrase-extraction-kbir-inspec"
+extractor = KeyphraseExtractionPipeline(model=model_name)
+
+keyphrases = extractor(str(text).replace("\n", " "))
+
+print(keyphrases)

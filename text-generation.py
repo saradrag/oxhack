@@ -1,7 +1,7 @@
 from transformers import pipeline
 
 pipe = pipeline('text-generation', model='pranavpsv/genre-story-generator-v2')
-text = pipe(" By forcing both Anakin and")
+text = pipe("Donald Trump and Darth Vader")
 print(text[0]['generated_text'])
 
 from transformers import (

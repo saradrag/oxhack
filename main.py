@@ -31,6 +31,7 @@ manga.paste(images[3], (712, 712))
 
 draw = ImageDraw.Draw(manga)
 draw.rectangle([(462, 512), (862, 812)], fill=ImageColor.getrgb("black"))
-text_box(text, draw, ImageFont.load_default(), [462, 512, 400, 300])
+# adjust the font size (the number after "times new roman.ttf") to make it reasonable
+text_box(text, draw, ImageFont.truetype("times new roman.ttf", 15), [462, 512, 400, 300])
 
 manga.save("manga.png")

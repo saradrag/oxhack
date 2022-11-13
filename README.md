@@ -34,3 +34,7 @@ To use anime generating notebook:
 3. Run through the .ipnyb file step by step. It might take some time to download the models the first time you run it. 
 
 4. Then a video `my_video.mp4` will be generated in Colab: file - content. Have a look!
+
+### Future
+
+1. Bug: `NameError: name 'init_empty_weights' is not defined` appears sometimes. Try to restart the Colab session and hope it works.

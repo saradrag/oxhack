@@ -1,12 +1,15 @@
 # Oxford Hackathon Nov 2022 - AutoMangaAnime
 The following project is about generating manga and anime where the only input is two main characters and the rest is magic.
 
-### Harry Potter and Darth Vader ...
+### Harry Potter and Darth Vader Manga ...
+![Alt text](https://github.com/saradrag/oxhack/blob/main/manga.png)
+
+### Harry Potter and Darth Vader Anime ...
 ##### Enable sound for the story telling
 <video src="https://user-images.githubusercontent.com/112171137/201532458-dd5e9f3e-7323-4215-a55d-1cd546c3d9e6.mp4" controls="controls" style="max-width: 50%;">
 </video>
 
-### Shrek and Sponge Bob ...
+### Shrek and Sponge Bob Anime ...
 ##### Enable sound for the story telling
 <video src="https://user-images.githubusercontent.com/112171137/201532681-3831bdb8-0d85-4ad7-9afe-a4b368fc083c.mp4" controls="controls" style="max-width: 50%;">
 </video>
